@@ -31,9 +31,13 @@ function thesis_search(inputText) {
                     nodeHtml += '<span>' + element.name + '</span>'
                 })
                 let abstracts = element.abstract
-                if (abstracts.length > 400) {
-                    abstracts = abstracts.slice(0, 400);
-                    abstracts += '...'
+                if (abstracts !== null) {
+                    if (abstracts.length > 400) {
+                        abstracts = abstracts.slice(0, 400);
+                        abstracts += '...'
+                    }
+                } else {
+                    abstracts = ''
                 }
                 nodeHtml += '</div><span class="page-abstract" style="font-size: 1em;text-align: left;color: #000;">' +
                     abstracts +
@@ -120,6 +124,9 @@ async function createCitationRelation(graphData, parentPaperId, loopDepth) {
             const ci = data.citations[index];
             if (index === 6 || index === data.citations.length) {
                 break;
+            }
+            if (typeof (graphData["nodes"].find(element => element.id === ci.paperId)) !== 'undefined') {
+                continue;
             }
             let pageAuthors = ''
             for (let index = 0; index < ci.authors.length; index++) {
