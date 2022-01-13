@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thesis visualization</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/particles_bubble_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div id="thesis-search">
+        <h1 class="page-title">论文查询&可视化分析</h1>
+        <div class="search">
+            <div class="icon"></div>
+            <div class="input">
+                <input type="text" placeholder="按下Enter键查询" id="mysearch">
+            </div>
+            <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
+        </div>
+    </div>
+    <div class="footer">* 此项目为测试样例, 不代表最终效果</div>
+
+    <script>
+        const icon = document.querySelector('.icon');
+        const search = document.querySelector('.search');
+        icon.onclick = function () {
+            search.classList.toggle('active')
+        }
+    </script>
+
+    <script src="/js/particles.js"></script>
+    <script src="/js/particles_bubble_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/thesis_search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+    <script src="/js/echarts_thesis.js"></script>
+</body>
+
+</html>
